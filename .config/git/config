@@ -1,6 +1,8 @@
 [alias]
   sw = switch
   st = status
+  stt = status -uno
+  co  = checkout
   br = branch
   cm = commit -m
   graph = log --graph --oneline
