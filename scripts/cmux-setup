@@ -1,0 +1,52 @@
+#!/bin/zsh
+# cmux-setup - ワークスペースのレイアウト自動セットアップ
+
+CMUX=/Applications/cmux.app/Contents/Resources/bin/cmux
+
+if ! $CMUX ping > /dev/null 2>&1; then
+    echo "cmuxが起動していません" >&2
+    exit 1
+fi
+
+WS="$CMUX_WORKSPACE_ID"
+MAIN_SURFACE="$CMUX_SURFACE_ID"
+
+# 左にyazi
+LEFT_RESULT=$($CMUX new-split left --workspace "$WS" 2>&1)
+LEFT_SURFACE=$(echo "$LEFT_RESULT" | awk '{print $2}')
+sleep 0.5
+$CMUX send --workspace "$WS" --surface "$LEFT_SURFACE" "yazi" >/dev/null 2>&1
+$CMUX send-key --workspace "$WS" --surface "$LEFT_SURFACE" "Enter" >/dev/null 2>&1
+
+# 右ペインの左境界を左に押す = 左(yazi)が縮む
+MAIN_PANE=$($CMUX list-panes --workspace "$WS" 2>/dev/null | grep '\[focused\]' | grep -o 'pane:[0-9]*')
+for i in $(seq 1 4); do
+    $CMUX resize-pane --pane "$MAIN_PANE" --workspace "$WS" -L --amount 100 >/dev/null 2>&1
+done
+
+# 上にshell（高さ小さめ）
+$CMUX new-split up --workspace "$WS" --surface "$MAIN_SURFACE" >/dev/null 2>&1
+sleep 0.3
+for i in $(seq 1 4); do
+    $CMUX resize-pane --pane "$MAIN_PANE" --workspace "$WS" -U --amount 100 >/dev/null 2>&1
+done
+
+# 左ペイン(yazi)の下にgit-watch用ペインを作成
+GITDIFF_RESULT=$($CMUX new-split down --workspace "$WS" --surface "$LEFT_SURFACE" 2>&1)
+GITDIFF_SURFACE=$(echo "$GITDIFF_RESULT" | awk '{print $2}')
+sleep 0.3
+
+# git-watchペインを縮小
+LEFT_PANE=$($CMUX identify --surface "$LEFT_SURFACE" --workspace "$WS" 2>/dev/null \
+    | awk '/caller/,0' | grep -o '"pane_ref" *: *"pane:[0-9]*"' | grep -o 'pane:[0-9]*')
+for i in $(seq 1 4); do
+    $CMUX resize-pane --pane "$LEFT_PANE" --workspace "$WS" -D --amount 100 >/dev/null 2>&1
+done
+
+# git-watch でリアルタイムdiff表示
+$CMUX send --workspace "$WS" --surface "$GITDIFF_SURFACE" "git-watch" >/dev/null 2>&1
+$CMUX send-key --workspace "$WS" --surface "$GITDIFF_SURFACE" "Enter" >/dev/null 2>&1
+
+# メイン（右下）でClaude Code起動
+$CMUX send --workspace "$WS" --surface "$MAIN_SURFACE" "claude" >/dev/null 2>&1
+$CMUX send-key --workspace "$WS" --surface "$MAIN_SURFACE" "Enter" >/dev/null 2>&1

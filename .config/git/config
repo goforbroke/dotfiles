@@ -1,0 +1,9 @@
+[alias]
+  sw = switch
+  st = status
+  br = branch
+  cm = commit -m
+  graph = log --graph --oneline
+
+[ghq]
+  root = ~/ghq

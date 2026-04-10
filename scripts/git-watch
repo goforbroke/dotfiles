@@ -1,0 +1,53 @@
+#!/bin/zsh
+# git-watch - git status/diff statを変更検知で表示
+
+export GIT_PAGER=cat
+
+gen_repo_output() {
+    local dir=$1
+    git -C "$dir" rev-parse --git-dir &>/dev/null || return
+    git -C "$dir" status -sb
+    echo ""
+    git -C "$dir" diff --color=always --stat 2>/dev/null
+    git -C "$dir" diff --color=always --cached --stat 2>/dev/null
+}
+
+gen_output() {
+    setopt local_options null_glob
+    # メインリポジトリの出力
+    gen_repo_output .
+
+    # 直下のサブディレクトリで変更がある git リポジトリだけ表示
+    for sub in */; do
+        [[ -d "${sub}.git" ]] || continue
+        local dirty=0
+        # ファイル変更（未追跡・変更・ステージ済み）があるか
+        [[ -n "$(git -C "$sub" status --porcelain 2>/dev/null)" ]] && dirty=1
+        # デフォルトブランチ以外にいるか
+        if (( !dirty )); then
+            local branch=$(git -C "$sub" branch --show-current 2>/dev/null)
+            [[ "$branch" != "main" && "$branch" != "master" ]] && dirty=1
+        fi
+        # remote より ahead（未pushコミット）があるか
+        if (( !dirty )); then
+            local ahead=$(git -C "$sub" rev-list --count @{upstream}..HEAD 2>/dev/null)
+            [[ "$ahead" -gt 0 ]] 2>/dev/null && dirty=1
+        fi
+        (( dirty )) || continue
+        echo ""
+        echo "\033[1;34m── ${sub%/} ──\033[0m"
+        gen_repo_output "$sub"
+    done
+}
+
+prev_hash=""
+while true; do
+    output=$(gen_output)
+    curr_hash=$(echo "$output" | md5)
+    if [[ "$curr_hash" != "$prev_hash" ]]; then
+        printf '\033[H\033[J'
+        echo "$output"
+        prev_hash="$curr_hash"
+    fi
+    sleep 5
+done

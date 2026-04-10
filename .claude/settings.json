@@ -1,0 +1,14 @@
+{
+  "voiceEnabled": true,
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "language": "Japanese",
+  "includeCoAuthoredBy": false,
+  "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "cat | bash ~/.claude/custom-shell/status.sh"
+  }
+}

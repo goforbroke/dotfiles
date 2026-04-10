@@ -1,0 +1,25 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
+# aqua - Declarative CLI Version Manager
+# https://aquaproj.github.io/
+# checksum:
+#   enabled: true
+#   require_checksum: true
+#   supported_envs:
+#   - all
+registries:
+- type: standard
+  ref: v4.492.0 # renovate: depName=aquaproj/aqua-registry
+packages:
+- name: cli/cli@v2.89.0
+- name: junegunn/fzf@v0.71.0
+- name: golang/go@go1.26.1
+- name: neovim/neovim@v0.12.0
+- name: XcodesOrg/xcodes@1.6.2
+- name: x-motemen/ghq@v1.9.4
+- name: d-kuro/gwq@v0.0.17
+- name: starship/starship@v1.24.2
+- name: nodejs/node@v25.9.0
+- name: asciinema/agg@v1.7.0
+- name: asciinema/asciinema@v3.2.0
+- name: sxyazi/yazi@v26.1.22
