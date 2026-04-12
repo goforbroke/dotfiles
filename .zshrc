@@ -95,6 +95,9 @@ bindkey '^g' fzf-ghq-widget
 alias vim='nvim'
 alias g='git'
 alias gplo='git pull origin'
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff'
+fi
 
 # starship
 eval "$(starship init zsh)"
