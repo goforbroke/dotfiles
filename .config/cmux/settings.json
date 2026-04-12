@@ -1,13 +1,22 @@
 {
   "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux-settings.schema.json",
   "schemaVersion": 1,
-
+  "repositories": [
+    "your/repo/path/here",
+    "your/repo/path/here",
+  ],
+  "shortcut": {
+    "key": "d",
+    "modifiers": [
+      "command",
+      "control"
+    ]
+  }
   // This file uses JSON with comments (JSONC).
   // Uncomment and edit any setting to make it file-managed.
   // Remove a setting to fall back to the value saved in Settings.
   // cmux creates this template on launch when both settings file locations are missing.
   // ~/.config/cmux/settings.json takes precedence over the Application Support fallback.
-
   //   "app" : {
   //     "appearance" : "system",
   //     "appIcon" : "automatic",
@@ -23,7 +32,6 @@
   //     "sendAnonymousTelemetry" : true,
   //     "warnBeforeQuit" : true
   //   },
-
   //   "notifications" : {
   //     "command" : "",
   //     "customSoundFilePath" : "",
@@ -33,7 +41,6 @@
   //     "sound" : "default",
   //     "unreadPaneRing" : true
   //   },
-
   //   "sidebar" : {
   //     "branchLayout" : "vertical",
   //     "hideAllDetails" : false,
@@ -48,7 +55,6 @@
   //     "showPullRequests" : true,
   //     "showSSH" : true
   //   },
-
   //   "workspaceColors" : {
   //     "colors" : {
   //       "Amber" : "#7D6608",
@@ -72,7 +78,6 @@
   //     "notificationBadgeColor" : null,
   //     "selectionColor" : null
   //   },
-
   //   "sidebarAppearance" : {
   //     "darkModeTintColor" : null,
   //     "lightModeTintColor" : null,
@@ -80,7 +85,6 @@
   //     "tintColor" : "#000000",
   //     "tintOpacity" : 0.17999999999999999
   //   },
-
   //   "automation" : {
   //     "claudeBinaryPath" : "",
   //     "claudeCodeIntegration" : true,
@@ -89,13 +93,11 @@
   //     "socketControlMode" : "cmuxOnly",
   //     "socketPassword" : ""
   //   },
-
   //   "customCommands" : {
   //     "trustedDirectories" : [
   // 
   //     ]
   //   },
-
   //   "browser" : {
   //     "defaultSearchEngine" : "google",
   //     "hostsToOpenInEmbeddedBrowser" : [
@@ -118,7 +120,6 @@
   // 
   //     ]
   //   },
-
   //   "shortcuts" : {
   //     "bindings" : {
   //       "browserBack" : "cmd+[",

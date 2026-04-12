@@ -69,12 +69,7 @@ zle -N fzf-select-history
 ## ショートカットキー（Ctrl + r）に割り当て
 bindkey '^r' fzf-select-history
 
-## ショートカットキー（Ctrl + g）を割り当てる場合
-alias g='ghq-cd'
-
-# Repository incremental saerch
-#!/usr/bin/env bash
-
+# Repository incremental search
 function ghq-path() {
     ghq list --full-path | fzf
 }
@@ -109,6 +104,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Env
 export EDITOR=nvim
-
+export GITHUB_PAT_TOKEN="your_github_pat_token_here"
 # Custom scripts
 export PATH="$PATH:$HOME/bin"

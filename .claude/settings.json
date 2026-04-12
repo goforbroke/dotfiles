@@ -1,14 +1,60 @@
 {
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Bash(npm *)",
+      "Bash(rails *)",
+      "Bash(docker *)",
+      "Bash(terraform *)",
+      "Bash(make *)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(cat *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(touch *)",
+      "Read",
+      "Write",
+      "Edit",
+      "WebFetch",
+      "WebSearch",
+      "Skill"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(~/.aws/credentials)",
+      "Read(~/.ssh/*)",
+      "Read(**/master.key)",
+      "Read(**/*.pem)",
+      "Edit(**/.env)",
+      "Edit(~/.aws/credentials)",
+      "Edit(~/.ssh/*)"
+    ],
+    "ask": [
+      "Bash(git reset --hard *)",
+      "Bash(git push --force *)",
+      "Bash(git branch -D *)",
+      "Bash(curl -X *)",
+      "Bash(curl -d *)",
+      "Bash(sudo *)",
+      "Bash(rm *)",
+      "Bash(rm -rf *)",
+      "Bash(terraform apply *)",
+      "Bash(terraform destroy *)"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "cat | bash ~/.claude/custom-shell/status.sh"
+  },
+  "language": "Japanese",
   "voiceEnabled": true,
   "voice": {
     "enabled": true,
     "mode": "hold"
-  },
-  "language": "Japanese",
-  "includeCoAuthoredBy": false,
-  "model": "sonnet",
-  "statusLine": {
-    "type": "command",
-    "command": "cat | bash ~/.claude/custom-shell/status.sh"
   }
 }
