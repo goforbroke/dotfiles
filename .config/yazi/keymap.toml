@@ -10,6 +10,6 @@ run  = 'shell "printf \"%s\" \"$0\" | pbcopy" --confirm'
 desc = "Copy absolute path to clipboard"
 
 [[mgr.prepend_keymap]]
-on   = ["g", "p"]
-run  = 'shell "$HOME/.config/yazi/grip-preview.sh \"$0\"" --orphan'
-desc = "Preview Markdown with grip"
+on   = ["p", "m"]
+run  = 'shell "$HOME/.config/yazi/mo-preview.sh \"$0\"" --orphan'
+desc = "Preview Markdown with mo"

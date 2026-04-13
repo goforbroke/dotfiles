@@ -1,7 +1,7 @@
 #!/bin/bash
-# Open Markdown file with grip in cmux browser
+# Open Markdown file with mo in cmux browser
 file="$1"
-port=6419
+port=6275
 
 # 既存のgripプロセスを落としてから起動（重複防止）
 pkill -f "grip .* $port" 2>/dev/null

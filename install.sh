@@ -41,7 +41,7 @@ link "$DOTFILES_DIR/.config/nvim/init.lua"             "$HOME/.config/nvim/init.
 link "$DOTFILES_DIR/.config/starship.toml"             "$HOME/.config/starship.toml"
 link "$DOTFILES_DIR/.config/yazi/yazi.toml"            "$HOME/.config/yazi/yazi.toml"
 link "$DOTFILES_DIR/.config/yazi/keymap.toml"          "$HOME/.config/yazi/keymap.toml"
-link "$DOTFILES_DIR/.config/yazi/grip-preview.sh"      "$HOME/.config/yazi/grip-preview.sh"
+link "$DOTFILES_DIR/.config/yazi/mo-preview.sh"      "$HOME/.config/yazi/mo-preview.sh"
 
 # scripts -> ~/bin
 mkdir -p "$HOME/bin"
