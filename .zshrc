@@ -1,5 +1,7 @@
 # 1. Homebrew の初期化 (これを最優先にしないと brew prefix 等が動きません)
 eval "$(/opt/homebrew/bin/brew shellenv)"
+# brew のパスを変数に入れておく (高速化 & エラー防止)
+BREW_PREFIX=$(brew --prefix)
 
 # 2. aqua の設定 (PATH を通す)
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -17,16 +19,13 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # 4. プラグインの読み込み (brew prefix を使うので Homebrew 設定の後である必要あり)
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-# source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $BREW_PREFIX/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# source $BREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 source <(aqua completion zsh)
 
 alias agi='aqua g -i'
-
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Go
 ## Go 1.26 向け環境変数設定

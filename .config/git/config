@@ -9,3 +9,6 @@
 
 [ghq]
   root = ~/ghq
+[user]
+	name = goforbroke
+	email = 5427927+goforbroke@users.noreply.github.com
