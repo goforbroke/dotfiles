@@ -1,10 +1,6 @@
-lib
-gemini-cli
 mermaid-cli
-context7-mcp
+@upstash/context7-mcp
 awsp
 difit
 npm
 playwright
-track-cli
-wrangler

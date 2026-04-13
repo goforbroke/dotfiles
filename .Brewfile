@@ -1,3 +1,4 @@
+brew "gemini-cli"
 brew "grip"
 brew "tig"
 brew "zsh-autocomplete"
