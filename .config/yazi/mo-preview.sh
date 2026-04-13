@@ -3,7 +3,7 @@
 file="$1"
 port=6275
 
-# 既存のgripプロセスを落としてから起動（重複防止）
+# 既存のmoプロセスを落としてから起動（重複防止）
 pkill -f "grip .* $port" 2>/dev/null
 grip "$file" "$port" >/dev/null 2>&1 &
 sleep 1
