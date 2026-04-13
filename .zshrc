@@ -104,6 +104,9 @@ eval "$(starship init zsh)"
 # Claude
 export PATH="$HOME/.local/bin:$PATH"
 
+# awsp
+alias awsp="source _awsp"
+
 # Env
 export EDITOR=nvim
 export GITHUB_PAT_TOKEN="your_github_pat_token_here"
