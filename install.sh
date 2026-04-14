@@ -2,6 +2,7 @@
 set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+USER_LOCAL_BIN_DIR="$HOME/.local/bin"
 
 link() {
     local src="$1"
@@ -41,12 +42,12 @@ link "$DOTFILES_DIR/.config/nvim/init.lua"             "$HOME/.config/nvim/init.
 link "$DOTFILES_DIR/.config/starship.toml"             "$HOME/.config/starship.toml"
 link "$DOTFILES_DIR/.config/yazi/yazi.toml"            "$HOME/.config/yazi/yazi.toml"
 link "$DOTFILES_DIR/.config/yazi/keymap.toml"          "$HOME/.config/yazi/keymap.toml"
-link "$DOTFILES_DIR/.config/yazi/mo-preview.sh"      "$HOME/.config/yazi/mo-preview.sh"
 
 # scripts -> ~/bin
-mkdir -p "$HOME/bin"
-link "$DOTFILES_DIR/bin/cmux-setup"      "$HOME/bin/cmux-setup"
-link "$DOTFILES_DIR/bin/git-watch"       "$HOME/bin/git-watch"
+mkdir -p "$USER_LOCAL_BIN_DIR"
+link "$DOTFILES_DIR/.local/bin/cmux-setup"      "$USER_LOCAL_BIN_DIR/cmux-setup"
+link "$DOTFILES_DIR/.local/bin/git-watch"       "$USER_LOCAL_BIN_DIR/git-watch"
+link "$DOTFILES_DIR/.local/bin/mo-opener"       "$USER_LOCAL_BIN_DIR/mo-opener"
 
 echo ""
 echo "Done."

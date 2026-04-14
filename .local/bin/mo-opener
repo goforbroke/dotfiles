@@ -1,0 +1,43 @@
+#!/bin/bash
+
+port=6275
+
+# moのプロセスをkill
+lsof -ti:${port} | xargs kill -9 >/dev/null 2>&1
+
+# mo の引数処理が安全であることを前提とする
+mo --no-open "$@" || return 1
+
+
+# 2. mo を起動し、標準出力から URL (クエリ付き) を抽出する
+# mo の出力を一度変数に格納（標準エラーはそのまま流す）
+mo_output=$(mo --no-open "$@" | head -n 1)
+
+# 出力が空ならエラーとして終了
+#[[ -z "$mo_output" ]] && return 1
+
+# 3. 出力から URL 部分 (http://localhost:6275/?file=...) を抽出
+# スペースで区切られた最初の単語を取得
+base_url=$(echo "$mo_output" | awk '{print $1}')
+
+# 念のため、抽出したURLが期待通りかチェック（空ならデフォルトを使う）
+url="${base_url:-http://localhost:${port}}"
+
+# エラーハンドリングをより厳密に
+local workspace
+workspace=$(cmux identify --no-caller 2>/dev/null | grep -o 'workspace:[0-9]*')
+
+if [[ -z "$workspace" ]]; then
+  echo "Error: not in a cmux workspace" >&2
+  return 1
+fi
+
+# surface の取得を安全に行う
+local surface
+surface=$(cmux tree --workspace "$workspace" 2>/dev/null | grep '\[browser\]' | grep -o 'surface:[0-9]*' | head -n 1)
+
+if [[ -n "$surface" ]]; then
+  cmux browser "$surface" goto "$url"
+else
+  cmux browser open "$url" --workspace "$workspace"
+fi

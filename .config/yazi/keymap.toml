@@ -8,8 +8,3 @@ desc = "fzf search"
 on   = ["y", "p"]
 run  = 'shell "printf \"%s\" \"$0\" | pbcopy" --confirm'
 desc = "Copy absolute path to clipboard"
-
-[[mgr.prepend_keymap]]
-on   = ["p", "m"]
-run  = 'shell "$HOME/.config/yazi/mo-preview.sh \"$0\"" --orphan'
-desc = "Preview Markdown with mo"
