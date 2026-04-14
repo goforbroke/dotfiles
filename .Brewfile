@@ -1,4 +1,6 @@
 tap "k1low/tap"
+brew "agg"
+brew "asciinema"
 brew "colordiff"
 brew "gemini-cli"
 brew "grip"

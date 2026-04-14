@@ -23,3 +23,4 @@ packages:
 - name: asciinema/agg@v1.7.0
 - name: asciinema/asciinema@v3.2.0
 - name: sxyazi/yazi@v26.1.22
+- name: direnv/direnv@v2.37.1

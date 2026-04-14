@@ -43,7 +43,10 @@ link "$DOTFILES_DIR/.config/starship.toml"             "$HOME/.config/starship.t
 link "$DOTFILES_DIR/.config/yazi/yazi.toml"            "$HOME/.config/yazi/yazi.toml"
 link "$DOTFILES_DIR/.config/yazi/keymap.toml"          "$HOME/.config/yazi/keymap.toml"
 
-# scripts -> ~/bin
+# dienv
+link "$DOTFILES_DIR/.envrc.example"  "$HOME/.envrc.example"
+
+# scripts
 mkdir -p "$USER_LOCAL_BIN_DIR"
 link "$DOTFILES_DIR/.local/bin/cmux-setup"      "$USER_LOCAL_BIN_DIR/cmux-setup"
 link "$DOTFILES_DIR/.local/bin/git-watch"       "$USER_LOCAL_BIN_DIR/git-watch"

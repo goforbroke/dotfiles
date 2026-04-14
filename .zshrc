@@ -109,7 +109,9 @@ alias awsp="source _awsp"
 
 # Env
 export EDITOR=nvim
-export GITHUB_PAT_TOKEN="your_github_pat_token_here"
 
 # Custom scripts
 export PATH="$PATH:$HOME/bin"
+
+# direnv
+eval "$(direnv hook zsh)"
