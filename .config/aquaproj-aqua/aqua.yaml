@@ -26,3 +26,4 @@ packages:
 - name: direnv/direnv@v2.37.1
 - name: hashicorp/terraform@v1.14.8
 - name: github/github-mcp-server@v0.33.1
+- name: aws/aws-cli@2.34.32
