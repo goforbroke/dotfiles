@@ -11,14 +11,19 @@ export PATH="$AQUA_ROOT_DIR/bin:$PATH"
 export AQUA_CONFIG="$XDG_CONFIG_HOME/aquaproj-aqua/aqua.yaml"
 export AQUA_PROGRESS_BAR=true
 
-# 3. Zsh 基本設定
+# 3. 補完の設定
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+# 4. Zsh 基本設定
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-# 4. プラグインの読み込み (brew prefix を使うので Homebrew 設定の後である必要あり)
+# 5. プラグインの読み込み (brew prefix を使うので Homebrew 設定の後である必要あり)
 source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $BREW_PREFIX/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 # source $BREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
@@ -106,6 +111,14 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # awsp
 alias awsp="source _awsp"
+
+# gcloud profile switch
+gcpp() {
+  local config=$(gcloud config configurations list --format='value(name)' | fzf --prompt='GCP Profile> ')
+  if [ -n "$config" ]; then
+    gcloud config configurations activate "$config"
+  fi
+}
 
 # Env
 export EDITOR=nvim
