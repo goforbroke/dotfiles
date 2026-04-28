@@ -25,6 +25,7 @@ echo "==> dotfiles: $DOTFILES_DIR"
 link "$DOTFILES_DIR/.Brewfile"   "$HOME/.Brewfile"
 link "$DOTFILES_DIR/.zprofile"   "$HOME/.zprofile"
 link "$DOTFILES_DIR/.zshrc"      "$HOME/.zshrc"
+link "$DOTFILES_DIR/.tigrc"      "$HOME/.tigrc"
 
 # .claude
 link "$DOTFILES_DIR/.claude/settings.json"           "$HOME/.claude/settings.json"
@@ -51,6 +52,7 @@ mkdir -p "$USER_LOCAL_BIN_DIR"
 link "$DOTFILES_DIR/.local/bin/cmux-setup"      "$USER_LOCAL_BIN_DIR/cmux-setup"
 link "$DOTFILES_DIR/.local/bin/git-watch"       "$USER_LOCAL_BIN_DIR/git-watch"
 link "$DOTFILES_DIR/.local/bin/mo-opener"       "$USER_LOCAL_BIN_DIR/mo-opener"
+link "$DOTFILES_DIR/.local/bin/tig-copilot-commit"  "$USER_LOCAL_BIN_DIR/tig-copilot-commit"
 
 echo ""
 echo "Done."

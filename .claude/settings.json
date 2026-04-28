@@ -51,10 +51,22 @@
     "type": "command",
     "command": "cat | bash ~/.claude/custom-shell/status.sh"
   },
+  "enabledPlugins": {
+    "evolutionary-naming@kawasima-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "kawasima-skills": {
+      "source": {
+        "source": "github",
+        "repo": "kawasima/evolutionary-naming"
+      }
+    }
+  },
   "language": "Japanese",
-  "voiceEnabled": true,
   "voice": {
     "enabled": true,
     "mode": "hold"
-  }
+  },
+  "voiceEnabled": true,
+  "theme": "light-ansi"
 }
