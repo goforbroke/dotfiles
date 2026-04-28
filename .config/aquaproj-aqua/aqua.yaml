@@ -27,3 +27,4 @@ packages:
 - name: github/github-mcp-server@v0.33.1
 - name: aws/aws-cli@2.34.32
 - name: tfutils/tfenv@v3.0.0
+- name: dotenvx/dotenvx@v1.64.0
