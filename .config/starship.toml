@@ -32,6 +32,7 @@ $docker_context\
 $package\
 $aws\
 [](fg:blue bg:surface0)\
+$time \
 $cmd_duration\
 [](fg:surface0)\
 $line_break\
@@ -104,9 +105,9 @@ format = '[ $duration ](fg:blue bold bg:surface0)'
 
 # 現在時刻
 [time]
-disabled = true                # 時間表示はWezTermのステータスバーで代用するため無効化
-time_format = "%R"             # Hour:Minute Format
-style = "fg:surface0 bg:blue"
+disabled = false
+time_format = "%T"             # Hour:Minute Format
+style = "fg:blue bold bg:surface0"
 format = '[  $time ]($style)'
 
 # ユーザー名の表示
