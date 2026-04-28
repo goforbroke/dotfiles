@@ -120,6 +120,10 @@ gcpp() {
   fi
 }
 
+# GitHub
+# 「今やるべきPR（自分が作ったもの ＋ レビュー依頼）」を出す
+alias mypr='gh search prs --review-requested=@me --state=open'
+
 # Env
 export EDITOR=nvim
 
