@@ -28,3 +28,5 @@ packages:
 - name: aws/aws-cli@2.34.32
 - name: tfutils/tfenv@v3.0.0
 - name: dotenvx/dotenvx@v1.64.0
+- name: blacknon/hwatch@0.4.2
+- name: sharkdp/fd@v10.4.2
