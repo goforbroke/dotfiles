@@ -51,8 +51,12 @@ else
   branch_str=""
 fi
 
-printf "%s v%s │ ${color}%s %d%%${reset} (%s/%s) │ %s │ +%d -%d%s" \
+# Current directory (~/... に短縮)
+cwd="${PWD/#$HOME/~}"
+cwd_str=" │ 📁 $cwd"
+
+printf "%s v%s │ ${color}%s %d%%${reset} (%s/%s) │ %s │ +%d -%d%s%s" \
   "$model" "$version" "$bar" "$pct_int" \
   "$(fmt $current_used)" "$(fmt $context_size)" \
   "$cost_str" "$added" "$removed" \
-  "$branch_str"
+  "$branch_str" "$cwd_str"
