@@ -43,8 +43,16 @@ reset="\033[0m"
 
 cost_str=$(awk "BEGIN {printf \"$%.4f\", $cost}")
 
-printf "%s v%s │ ${color}%s %d%%${reset} (%s/%s) │ %s │ +%d -%d" \
+# Current branch
+branch=$(git branch --show-current 2>/dev/null)
+if [ -n "$branch" ]; then
+  branch_str=" │  $branch"
+else
+  branch_str=""
+fi
+
+printf "%s v%s │ ${color}%s %d%%${reset} (%s/%s) │ %s │ +%d -%d%s" \
   "$model" "$version" "$bar" "$pct_int" \
   "$(fmt $current_used)" "$(fmt $context_size)" \
-  "$cost_str" "$added" "$removed"
-
+  "$cost_str" "$added" "$removed" \
+  "$branch_str"
