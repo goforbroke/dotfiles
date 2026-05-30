@@ -6,5 +6,3 @@ set diff-options = -m --first-parent
 color  diff-header       default magenta
 color  diff-chunk        black   white
 
-# Tigのstatus画面で 'A' を押すと Copilot が生成し、エディタで確認・修正
-bind status A !~/.local/bin/tig-copilot-commit
