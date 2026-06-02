@@ -30,3 +30,4 @@ packages:
 - name: dotenvx/dotenvx@v1.64.0
 - name: blacknon/hwatch@0.4.2
 - name: sharkdp/fd@v10.4.2
+- name: Tyrrrz/FFmpegBin@8.1.1
