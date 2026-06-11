@@ -49,7 +49,9 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "cat | bash ~/.claude/custom-shell/status.sh"
+    "command": "~/.claude/custom-shell/status.sh",
+    "padding": 0,
+    "refreshInterval": 10
   },
   "enabledPlugins": {
     "evolutionary-naming@kawasima-skills": true
