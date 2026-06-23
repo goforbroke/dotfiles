@@ -31,3 +31,4 @@ packages:
 - name: blacknon/hwatch@0.4.2
 - name: sharkdp/fd@v10.4.2
 - name: Tyrrrz/FFmpegBin@8.1.1
+- name: bridgecrewio/checkov@3.3.1
