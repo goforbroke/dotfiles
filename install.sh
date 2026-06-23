@@ -15,7 +15,7 @@ link() {
         mv "$dst" "${dst}.bak"
     fi
 
-    ln -sf "$src" "$dst"
+    ln -sfn "$src" "$dst"
     echo "  linked: $dst -> $src"
 }
 
@@ -28,8 +28,15 @@ link "$DOTFILES_DIR/.zshrc"      "$HOME/.zshrc"
 link "$DOTFILES_DIR/.tigrc"      "$HOME/.tigrc"
 
 # .claude
-link "$DOTFILES_DIR/.claude/settings.json"           "$HOME/.claude/settings.json"
-link "$DOTFILES_DIR/.claude/custom-shell/status.sh"  "$HOME/.claude/custom-shell/status.sh"
+link "$DOTFILES_DIR/.claude/CLAUDE.md"                               "$HOME/.claude/CLAUDE.md"
+link "$DOTFILES_DIR/.claude/keybindings.json"                        "$HOME/.claude/keybindings.json"
+link "$DOTFILES_DIR/.claude/settings.json"                           "$HOME/.claude/settings.json"
+link "$DOTFILES_DIR/.claude/custom-shell/status.sh"                  "$HOME/.claude/custom-shell/status.sh"
+link "$DOTFILES_DIR/.claude/skills/japanese-tech-writing"            "$HOME/.claude/skills/japanese-tech-writing"
+link "$DOTFILES_DIR/.claude/skills/evolutionary-naming"              "$HOME/.claude/skills/evolutionary-naming"
+link "$DOTFILES_DIR/.claude/commands"                                "$HOME/.claude/commands"
+# 個人スキル追加時: 上記パターンで link を追記
+# 会社スキルは work- prefix を付け ~/.claude/skills/ に直接置く（dotfiles 管理外）
 
 # .grip
 link "$DOTFILES_DIR/.grip/settings.py"  "$HOME/.grip/settings.py"

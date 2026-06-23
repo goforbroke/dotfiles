@@ -1,1 +1,18 @@
 .vscode/
+
+# Claude Code - ランタイム生成物
+.claude/projects/
+.claude/security/
+.claude/sessions/
+.claude/file-history/
+.claude/daemon/
+.claude/history.jsonl
+.claude/paste-cache/
+.claude/backups/
+.claude/shell-snapshots/
+.claude/cache/
+.claude/telemetry/
+.claude/settings.local.json
+
+# Claude Code - 会社専用スキル（work- prefix）
+.claude/skills/work-*/
