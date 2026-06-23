@@ -15,7 +15,7 @@ link() {
         mv "$dst" "${dst}.bak"
     fi
 
-    ln -sf "$src" "$dst"
+    ln -sfn "$src" "$dst"
     echo "  linked: $dst -> $src"
 }
 
