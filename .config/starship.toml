@@ -30,7 +30,7 @@ $rust\
 $conda\
 $docker_context\
 $package\
-$aws\
+$env_var\
 [](fg:blue bg:surface0)\
 $time \
 $cmd_duration\
@@ -130,9 +130,11 @@ style = "fg:surface0 bg:sky"
 format = '[($all_status $ahead_behind) ]($style)'
 
 # 各種開発環境の設定
-[aws]
+[env_var]
+variable = "AWS_PROFILE"
+default = ""
+format = '[[ ☁️ $env_value ](fg:yellow bg:blue) ]($style)'
 style = "fg:surface0 bg:blue"
-format = '[[ $symbol ](fg:yellow bg:blue)($profile $region) ]($style)'
 
 [conda]
 symbol = ""                                                                # nf-dev-anaconda
