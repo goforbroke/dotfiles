@@ -69,9 +69,16 @@
         "source": "github",
         "repo": "DietrichGebert/ponytail"
       }
+    },
+    "genshijin": {
+      "source": {
+        "source": "github",
+        "repo": "InterfaceX-co-jp/genshijin"
+      }
     }
   },
   "language": "Japanese",
+  "tui": "fullscreen",
   "voice": {
     "enabled": true,
     "mode": "hold"
