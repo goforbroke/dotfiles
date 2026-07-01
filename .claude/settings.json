@@ -55,7 +55,8 @@
   },
   "enabledPlugins": {
     "evolutionary-naming@kawasima-skills": true,
-    "ponytail@ponytail": true
+    "ponytail@ponytail": true,
+    "genshijin@genshijin": true
   },
   "extraKnownMarketplaces": {
     "kawasima-skills": {
