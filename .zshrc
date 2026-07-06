@@ -132,4 +132,4 @@ export PATH="$PATH:$HOME/bin"
 
 # direnv
 eval "$(direnv hook zsh)"
-alias clc='~/ghq/github.com/masa0902dev/claude-code-rate/clc.py'
+
