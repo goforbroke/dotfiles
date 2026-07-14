@@ -63,19 +63,22 @@
       "source": {
         "source": "github",
         "repo": "kawasima/evolutionary-naming"
-      }
+      },
+      "autoUpdate": true
     },
     "ponytail": {
       "source": {
         "source": "github",
         "repo": "DietrichGebert/ponytail"
-      }
+      },
+      "autoUpdate": true
     },
     "genshijin": {
       "source": {
         "source": "github",
         "repo": "InterfaceX-co-jp/genshijin"
-      }
+      },
+      "autoUpdate": true
     }
   },
   "language": "Japanese",
