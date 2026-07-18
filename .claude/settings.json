@@ -56,7 +56,8 @@
   "enabledPlugins": {
     "evolutionary-naming@kawasima-skills": true,
     "ponytail@ponytail": true,
-    "genshijin@genshijin": true
+    "genshijin@genshijin": true,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "kawasima-skills": {
@@ -88,5 +89,7 @@
     "mode": "hold"
   },
   "theme": "auto",
-  "voiceEnabled": true
+  "agentPushNotifEnabled": true,
+  "voiceEnabled": true,
+  "model": "claude-fable-5[1m]"
 }
