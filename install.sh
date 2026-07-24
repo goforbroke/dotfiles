@@ -23,6 +23,7 @@ echo "==> dotfiles: $DOTFILES_DIR"
 
 # ホームディレクトリ直下
 link "$DOTFILES_DIR/.Brewfile"   "$HOME/.Brewfile"
+link "$DOTFILES_DIR/.zshenv"     "$HOME/.zshenv"
 link "$DOTFILES_DIR/.zprofile"   "$HOME/.zprofile"
 link "$DOTFILES_DIR/.zshrc"      "$HOME/.zshrc"
 link "$DOTFILES_DIR/.tigrc"      "$HOME/.tigrc"
